@@ -421,17 +421,11 @@ public class Tarsos_VAD extends Service implements AudioProcessor, Thread.Uncaug
             Log.d("TILEs", "Valid Sound = " + validSoundNumber + "--Valid Pitch = " + validPitchNumber);
 
 
-            if(validPitchNumber > Constants.VALID_PITCH && validSoundNumber > Constants.VALID_SOUND) {
+            if(validSoundNumber > Constants.VALID_SOUND_NUM) {
                 isFoundVAD = true;
                 writeSharedPreference(Constants.VAD_TRIGGERED, Constants.TRUE);
                 mHandler.postDelayed(mTickExecutor, 1000);
                 writeSharedPreference(Constants.OPENSMILERUN, Constants.OPENSMILERUNING);
-            } else if (validPitchNumber > 6) {
-                isFoundVAD = true;
-                mHandler.postDelayed(mTickExecutor, 1000);
-                writeSharedPreference(Constants.VAD_TRIGGERED, Constants.TRUE);
-                writeSharedPreference(Constants.OPENSMILERUN, Constants.OPENSMILERUNING);
-
             } else {
                 isFoundVAD = false;
                 writeSharedPreference(Constants.VAD_TRIGGERED, Constants.FALSE);
