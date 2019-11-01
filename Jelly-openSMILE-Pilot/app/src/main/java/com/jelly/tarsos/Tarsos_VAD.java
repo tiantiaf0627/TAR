@@ -271,7 +271,7 @@ public class Tarsos_VAD extends Service implements AudioProcessor, Thread.Uncaug
                                 writeSharedPreference(Constants.VAD_STATUS, Constants.VAD_ALIVE);
 
                                 try {
-                                    mdispatcher = AudioDispatcherFactory.fromDefaultMicrophone(16000, Constants.tarsos_window, Constants.tarsos_window_shift);
+                                    mdispatcher = AudioDispatcherFactory.fromDefaultMicrophone(16000, Constants.tarsos_window, Constants.tarsos_overlap);
                                 } catch (Exception e) {
                                 }
 
